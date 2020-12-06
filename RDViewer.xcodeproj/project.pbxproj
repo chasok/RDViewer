@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EBB02965257D176F001E0911 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB02964257D176F001E0911 /* AppDelegate.swift */; };
-		EBB02969257D176F001E0911 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB02968257D176F001E0911 /* ViewController.swift */; };
 		EBB0296C257D176F001E0911 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB0296A257D176F001E0911 /* Main.storyboard */; };
 		EBB0296E257D1770001E0911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB0296D257D1770001E0911 /* Assets.xcassets */; };
 		EBB02971257D1770001E0911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB0296F257D1770001E0911 /* LaunchScreen.storyboard */; };
@@ -19,6 +18,9 @@
 		EBB029B9257D1F18001E0911 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029B8257D1F18001E0911 /* Defines.swift */; };
 		EBB029BF257D3BF8001E0911 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029BE257D3BF8001E0911 /* Record.swift */; };
 		EBB029C3257D4018001E0911 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029C2257D4018001E0911 /* AppError.swift */; };
+		EBB029C9257D6E70001E0911 /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029C8257D6E70001E0911 /* ListingViewController.swift */; };
+		EBB029D6257D6FB9001E0911 /* ListingViewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029D5257D6FB9001E0911 /* ListingViewLogic.swift */; };
+		EBB029DA257D71C6001E0911 /* UIViewController+Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029D9257D71C6001E0911 /* UIViewController+Messaging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +36,6 @@
 /* Begin PBXFileReference section */
 		EBB02961257D176F001E0911 /* RDViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RDViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB02964257D176F001E0911 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EBB02968257D176F001E0911 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EBB0296B257D176F001E0911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBB0296D257D1770001E0911 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBB02970257D1770001E0911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,6 +49,9 @@
 		EBB029B8257D1F18001E0911 /* Defines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
 		EBB029BE257D3BF8001E0911 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		EBB029C2257D4018001E0911 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		EBB029C8257D6E70001E0911 /* ListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
+		EBB029D5257D6FB9001E0911 /* ListingViewLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewLogic.swift; sourceTree = "<group>"; };
+		EBB029D9257D71C6001E0911 /* UIViewController+Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Messaging.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				EBB029B7257D1F07001E0911 /* Common */,
-				EBB029A6257D1D6C001E0911 /* Managers */,
 				EBB029A5257D1D5F001E0911 /* Models */,
-				EBB02968257D176F001E0911 /* ViewController.swift */,
-				EBB0296A257D176F001E0911 /* Main.storyboard */,
+				EBB029C6257D6E1B001E0911 /* UI */,
+				EBB029A6257D1D6C001E0911 /* Managers */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -150,8 +153,43 @@
 			children = (
 				EBB029B8257D1F18001E0911 /* Defines.swift */,
 				EBB029C2257D4018001E0911 /* AppError.swift */,
+				EBB029CE257D6E8F001E0911 /* Extensions */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		EBB029C6257D6E1B001E0911 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EBB0296A257D176F001E0911 /* Main.storyboard */,
+				EBB029C7257D6E36001E0911 /* Listing */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EBB029C7257D6E36001E0911 /* Listing */ = {
+			isa = PBXGroup;
+			children = (
+				EBB029DF257D7AC8001E0911 /* Cells */,
+				EBB029C8257D6E70001E0911 /* ListingViewController.swift */,
+				EBB029D5257D6FB9001E0911 /* ListingViewLogic.swift */,
+			);
+			path = Listing;
+			sourceTree = "<group>";
+		};
+		EBB029CE257D6E8F001E0911 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EBB029D9257D71C6001E0911 /* UIViewController+Messaging.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EBB029DF257D7AC8001E0911 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,12 +292,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB029C9257D6E70001E0911 /* ListingViewController.swift in Sources */,
 				EBB029B2257D1DCB001E0911 /* Session.swift in Sources */,
-				EBB02969257D176F001E0911 /* ViewController.swift in Sources */,
+				EBB029DA257D71C6001E0911 /* UIViewController+Messaging.swift in Sources */,
 				EBB029B9257D1F18001E0911 /* Defines.swift in Sources */,
 				EBB02965257D176F001E0911 /* AppDelegate.swift in Sources */,
 				EBB029C3257D4018001E0911 /* AppError.swift in Sources */,
 				EBB029BF257D3BF8001E0911 /* Record.swift in Sources */,
+				EBB029D6257D6FB9001E0911 /* ListingViewLogic.swift in Sources */,
 				EBB029AE257D1D9C001E0911 /* Network.swift in Sources */,
 				EBB029A8257D1D90001E0911 /* Storage.swift in Sources */,
 			);
