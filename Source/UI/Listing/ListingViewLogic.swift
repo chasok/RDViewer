@@ -62,24 +62,12 @@ class ListingViewLogic: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-            ??  UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        let r = records[indexPath.row]
-        cell.textLabel?.text = r.author
-        cell.detailTextLabel?.text = r.title
-        if let path = r.thumbnail,
-           let url = URL(string: path),
-           let data = try? Data(contentsOf: url)
-        {
-            cell.imageView?.image = UIImage(data: data)
-        } else {
-            cell.imageView?.image = nil
-        }
-        
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListingCell") as? ListingCell
+        cell?.fill(with: records[indexPath.row])
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        UITableView.automaticDimension
     }
 }

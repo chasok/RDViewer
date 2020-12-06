@@ -21,6 +21,10 @@
 		EBB029C9257D6E70001E0911 /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029C8257D6E70001E0911 /* ListingViewController.swift */; };
 		EBB029D6257D6FB9001E0911 /* ListingViewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029D5257D6FB9001E0911 /* ListingViewLogic.swift */; };
 		EBB029DA257D71C6001E0911 /* UIViewController+Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029D9257D71C6001E0911 /* UIViewController+Messaging.swift */; };
+		EBB029E1257D7B17001E0911 /* ListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029E0257D7B17001E0911 /* ListingCell.swift */; };
+		EBB029E7257D7CA1001E0911 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029E6257D7CA1001E0911 /* Date+Extensions.swift */; };
+		EBB029ED257D80EC001E0911 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029EC257D80EC001E0911 /* UIImageView+Extensions.swift */; };
+		EBB02A0D257D8E9E001E0911 /* NSLayoutConstraint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB02A0C257D8E9E001E0911 /* NSLayoutConstraint+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		EBB029C8257D6E70001E0911 /* ListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
 		EBB029D5257D6FB9001E0911 /* ListingViewLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewLogic.swift; sourceTree = "<group>"; };
 		EBB029D9257D71C6001E0911 /* UIViewController+Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Messaging.swift"; sourceTree = "<group>"; };
+		EBB029E0257D7B17001E0911 /* ListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCell.swift; sourceTree = "<group>"; };
+		EBB029E6257D7CA1001E0911 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		EBB029EC257D80EC001E0911 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		EBB02A0C257D8E9E001E0911 /* NSLayoutConstraint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				EBB029D9257D71C6001E0911 /* UIViewController+Messaging.swift */,
+				EBB029E6257D7CA1001E0911 /* Date+Extensions.swift */,
+				EBB029EC257D80EC001E0911 /* UIImageView+Extensions.swift */,
+				EBB02A0C257D8E9E001E0911 /* NSLayoutConstraint+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,6 +199,7 @@
 		EBB029DF257D7AC8001E0911 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EBB029E0257D7B17001E0911 /* ListingCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -293,14 +305,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBB029C9257D6E70001E0911 /* ListingViewController.swift in Sources */,
+				EBB02A0D257D8E9E001E0911 /* NSLayoutConstraint+Extension.swift in Sources */,
 				EBB029B2257D1DCB001E0911 /* Session.swift in Sources */,
 				EBB029DA257D71C6001E0911 /* UIViewController+Messaging.swift in Sources */,
 				EBB029B9257D1F18001E0911 /* Defines.swift in Sources */,
 				EBB02965257D176F001E0911 /* AppDelegate.swift in Sources */,
 				EBB029C3257D4018001E0911 /* AppError.swift in Sources */,
+				EBB029E1257D7B17001E0911 /* ListingCell.swift in Sources */,
+				EBB029ED257D80EC001E0911 /* UIImageView+Extensions.swift in Sources */,
 				EBB029BF257D3BF8001E0911 /* Record.swift in Sources */,
 				EBB029D6257D6FB9001E0911 /* ListingViewLogic.swift in Sources */,
 				EBB029AE257D1D9C001E0911 /* Network.swift in Sources */,
+				EBB029E7257D7CA1001E0911 /* Date+Extensions.swift in Sources */,
 				EBB029A8257D1D90001E0911 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
