@@ -30,17 +30,25 @@ class ListingViewLogic: NSObject, UITableViewDataSource, UITableViewDelegate {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+
         tableView.reloadData()
-        // TODO: add refresher
     }
 
     // MARK: - Data
+
+    @objc private func refreshData() {
+        loadData(reset: true)
+    }
     
     func loadData(reset: Bool = false) {
         guard request == nil || reset else { return }
         if reset { lastItem = nil }
         // TODO: add preloader
         request = storage.loadTop(after: lastItem, then: { [weak self] result in
+            self?.tableView?.refreshControl?.endRefreshing()
             self?.handleResponse(result, reset: reset)
         })
     }
