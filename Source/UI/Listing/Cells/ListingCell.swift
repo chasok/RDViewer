@@ -15,8 +15,18 @@ class ListingCell: UITableViewCell {
     @IBOutlet var thumbnailView: UIImageView!
     @IBOutlet var thumbnailRatioConstraint: NSLayoutConstraint!
     
+    deinit {
+        thumbnailView.rdv_cancelLoading()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        thumbnailView.image = nil
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
         thumbnailView.rdv_cancelLoading()
         thumbnailView.image = nil
