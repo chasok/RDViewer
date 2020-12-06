@@ -11,6 +11,7 @@ struct Record: Codable {
     let id: String
     let title: String
     let author: String
+    let created: Date
     let thumbnail: String?
     let thumbnail_height: Int?
     let thumbnail_width: Int?

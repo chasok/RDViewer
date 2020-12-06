@@ -7,11 +7,14 @@
 
 import UIKit
 
+private let formatter: RelativeDateTimeFormatter = {
+    let f = RelativeDateTimeFormatter()
+    f.unitsStyle = .full
+    return f
+}()
+
 extension Date {
     func ago() -> String {
-        // TODO
-        let df = DateFormatter()
-        df.setLocalizedDateFormatFromTemplate("d/M/YYYY H:m")
-        return df.string(from: self)
+        formatter.localizedString(for: self, relativeTo: Date())
     }
 }

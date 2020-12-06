@@ -32,6 +32,7 @@ class Network {
     init(host: String = kDEfaultHost) {
         self.host = host
         session = URLSession(configuration: .default)
+        decoder.dateDecodingStrategy = .secondsSince1970
     }
     
     @discardableResult

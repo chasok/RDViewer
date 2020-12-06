@@ -24,8 +24,8 @@ class ListingCell: UITableViewCell {
 
     func fill(with r: Record) {
         titleLabel.text = r.title
-        // TODO: real date from record
-        postedByLabel.text = "Posted by \(r.author) \(Date().ago())"
+
+        postedByLabel.text = "Posted by \(r.author) \(r.created.ago())"
         
         numberOfCommentsLabel.text = "\(r.num_comments ?? 0) comments"
         thumbnailView.rdv_loadImageAsync(r.thumbnail)
