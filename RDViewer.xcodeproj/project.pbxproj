@@ -13,6 +13,12 @@
 		EBB0296E257D1770001E0911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB0296D257D1770001E0911 /* Assets.xcassets */; };
 		EBB02971257D1770001E0911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB0296F257D1770001E0911 /* LaunchScreen.storyboard */; };
 		EBB0297C257D1770001E0911 /* RDViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0297B257D1770001E0911 /* RDViewerTests.swift */; };
+		EBB029A8257D1D90001E0911 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029A7257D1D90001E0911 /* Storage.swift */; };
+		EBB029AE257D1D9C001E0911 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029AD257D1D9C001E0911 /* Network.swift */; };
+		EBB029B2257D1DCB001E0911 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029B1257D1DCB001E0911 /* Session.swift */; };
+		EBB029B9257D1F18001E0911 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029B8257D1F18001E0911 /* Defines.swift */; };
+		EBB029BF257D3BF8001E0911 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029BE257D3BF8001E0911 /* Record.swift */; };
+		EBB029C3257D4018001E0911 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB029C2257D4018001E0911 /* AppError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,12 @@
 		EBB02977257D1770001E0911 /* RDViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RDViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB0297B257D1770001E0911 /* RDViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDViewerTests.swift; sourceTree = "<group>"; };
 		EBB0297D257D1770001E0911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBB029A7257D1D90001E0911 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		EBB029AD257D1D9C001E0911 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		EBB029B1257D1DCB001E0911 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		EBB029B8257D1F18001E0911 /* Defines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
+		EBB029BE257D3BF8001E0911 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		EBB029C2257D4018001E0911 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +109,9 @@
 		EBB0299A257D179C001E0911 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				EBB029B7257D1F07001E0911 /* Common */,
+				EBB029A6257D1D6C001E0911 /* Managers */,
+				EBB029A5257D1D5F001E0911 /* Models */,
 				EBB02968257D176F001E0911 /* ViewController.swift */,
 				EBB0296A257D176F001E0911 /* Main.storyboard */,
 			);
@@ -110,6 +125,33 @@
 				EBB0296D257D1770001E0911 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		EBB029A5257D1D5F001E0911 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EBB029BE257D3BF8001E0911 /* Record.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EBB029A6257D1D6C001E0911 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EBB029B1257D1DCB001E0911 /* Session.swift */,
+				EBB029A7257D1D90001E0911 /* Storage.swift */,
+				EBB029AD257D1D9C001E0911 /* Network.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EBB029B7257D1F07001E0911 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EBB029B8257D1F18001E0911 /* Defines.swift */,
+				EBB029C2257D4018001E0911 /* AppError.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +254,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB029B2257D1DCB001E0911 /* Session.swift in Sources */,
 				EBB02969257D176F001E0911 /* ViewController.swift in Sources */,
+				EBB029B9257D1F18001E0911 /* Defines.swift in Sources */,
 				EBB02965257D176F001E0911 /* AppDelegate.swift in Sources */,
+				EBB029C3257D4018001E0911 /* AppError.swift in Sources */,
+				EBB029BF257D3BF8001E0911 /* Record.swift in Sources */,
+				EBB029AE257D1D9C001E0911 /* Network.swift in Sources */,
+				EBB029A8257D1D90001E0911 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
