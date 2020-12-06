@@ -56,10 +56,14 @@ class Network {
             do {
                 guard let data = data else { throw(error ?? AppError.unknown) }
                 let result: T = try self.decoder.decode(T.self, from: data)
-                then?(.value(result))
+                DispatchQueue.main.async {
+                    then?(.value(result))
+                }
             }
             catch {
-                then?(.error(error))
+                DispatchQueue.main.async {
+                    then?(.error(error))
+                }
             }
         }
         task.resume()
