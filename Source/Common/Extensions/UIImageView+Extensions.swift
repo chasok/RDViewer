@@ -16,9 +16,16 @@ extension UIImageView {
     // memory address as storing key
     private var storingKey: String { Unmanaged.passUnretained(self).toOpaque().debugDescription }
     
-    func rdv_loadImageAsync(_ path: String?, placeholder: UIImage? = nil) {
+    func rdv_loadImageAsync(_ url: URL?, placeholder: UIImage? = nil, then: Handler<UIImage?>? = nil) {
+        rdv_loadImageAsync(url?.absoluteString, placeholder: placeholder, then: then)
+    }
+    
+    func rdv_loadImageAsync(_ path: String?, placeholder: UIImage? = nil, then: Handler<UIImage?>? = nil) {
         if let path = path, let cachedImage = imageCache.object(forKey: path as NSString) {
-            self.image = cachedImage
+            DispatchQueue.main.async {
+                self.image = cachedImage
+                then?(cachedImage)
+            }
             return
         }
 
@@ -26,14 +33,15 @@ extension UIImageView {
             requests[storingKey]?.cancel()
             let request = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 DispatchQueue.main.async { [weak self] in
+                    var image: UIImage? = placeholder
                     if let data = data,
                        let downloadedImage = UIImage(data: data)
                     {
                         imageCache.setObject(downloadedImage, forKey: path as NSString)
-                        self?.image = downloadedImage
-                    } else {
-                        self?.image = placeholder
+                        image = downloadedImage
                     }
+                    self?.image = image
+                    then?(image)
                 }
             })
             requests[storingKey] = request
