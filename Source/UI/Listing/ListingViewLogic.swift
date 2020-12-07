@@ -45,11 +45,13 @@ class ListingViewLogic: NSObject, UITableViewDataSource, UITableViewDelegate {
     @objc func loadData() {
         request = nil
         lastItem = nil
+        controller?.showLoadingIndicator()
         load(reset: true)
     }
         
     private func loadNextData() {
         guard request == nil, lastItem != nil else { return }
+        controller?.showPageLoadingIndicator()
         load(reset: false)
     }
     
@@ -60,6 +62,8 @@ class ListingViewLogic: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     private func handleResponse(_ result: Result<Response<Record>>, reset: Bool) {
+        controller?.hideLoadingIndicator()
+        controller?.hidePageLoadingIndicator()
         tableView?.refreshControl?.endRefreshing()
         request = nil
         switch result {
