@@ -32,33 +32,39 @@ class ListingViewLogic: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         
         tableView.refreshControl = UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
 
         tableView.reloadData()
     }
 
     // MARK: - Data
 
-    @objc private func refreshData() {
-        loadData(reset: true)
+    @objc func loadData() {
+        request = nil
+        lastItem = nil
+        load(reset: true)
+    }
+        
+    private func loadNextData() {
+        guard request == nil, lastItem != nil else { return }
+        load(reset: false)
     }
     
-    func loadData(reset: Bool = false) {
-        guard request == nil || reset else { return }
-        if reset { lastItem = nil }
-        // TODO: add preloader
+    private func load(reset: Bool) {
         request = storage.loadTop(after: lastItem, then: { [weak self] result in
-            self?.tableView?.refreshControl?.endRefreshing()
             self?.handleResponse(result, reset: reset)
         })
     }
     
     private func handleResponse(_ result: Result<Response<Record>>, reset: Bool) {
+        tableView?.refreshControl?.endRefreshing()
+        request = nil
         switch result {
         case .error(let error):
             controller?.showError(error)
         case .value(let value):
             records = (reset ? [] : records) + value.data.children.map({ $0.data })
+            lastItem = value.data.after
             tableView?.reloadData()
         }
     }
@@ -70,6 +76,9 @@ class ListingViewLogic: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row >= records.count - 5 {
+            loadNextData()
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListingCell") as? ListingCell
         cell?.fill(with: records[indexPath.row])
         return cell ?? UITableViewCell()

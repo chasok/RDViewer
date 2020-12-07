@@ -18,6 +18,8 @@ struct Response<T: Codable>: Codable {
 
 struct Listing<T: Codable>: Codable {
     let children: [Item<T>]
+    let after: String?
+    let before: String?
 }
 
 struct Item<T: Codable>: Codable {
@@ -38,7 +40,7 @@ class Storage {
     
     private func paramsForPage(after: String?) -> [String: Any]{
         var params = [String: Any]()
-        params["next"] = after
+        params["after"] = after
         return params
     }
 }
