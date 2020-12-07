@@ -8,7 +8,12 @@
 import UIKit
 
 class ListingCell: UITableViewCell {
-
+    enum Action {
+        case showImage
+    }
+    
+    var actionHandler: Handler<Action>?
+    
     @IBOutlet var stackView: UIStackView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var postedByLabel: UILabel!
@@ -24,6 +29,8 @@ class ListingCell: UITableViewCell {
         super.awakeFromNib()
         
         thumbnailView.image = nil
+        let recognizer = UITapGestureRecognizer.init(target: self, action: #selector(imageTapped))
+        thumbnailView.addGestureRecognizer(recognizer)
     }
     
     override func prepareForReuse() {
@@ -31,6 +38,11 @@ class ListingCell: UITableViewCell {
         
         thumbnailView.rdv_cancelLoading()
         thumbnailView.image = nil
+    }
+    // MARK: - Actions
+    
+    @IBAction private func imageTapped(_ sender: Any?) {
+        actionHandler?(.showImage)
     }
     
     // MARK: - Fillers

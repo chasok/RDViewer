@@ -80,7 +80,11 @@ class ListingViewLogic: NSObject, UITableViewDataSource, UITableViewDelegate {
             loadNextData()
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListingCell") as? ListingCell
-        cell?.fill(with: records[indexPath.row])
+        let record = records[indexPath.row]
+        cell?.fill(with: record)
+        cell?.actionHandler = { [weak self] action in
+            self?.controller?.naviagteToImageViewer(record.thumbnail)
+        }
         return cell ?? UITableViewCell()
     }
     
