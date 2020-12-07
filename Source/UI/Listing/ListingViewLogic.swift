@@ -7,6 +7,9 @@
 
 import UIKit
 
+private let kItemsLeftForNextPortion = 5
+private let kCellIdentifier = "ListingCell"
+
 class ListingViewLogic: NSObject, UITableViewDataSource, UITableViewDelegate {
     private let storage: Storage
 
@@ -76,10 +79,10 @@ class ListingViewLogic: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row >= records.count - 5 {
+        if indexPath.row >= records.count - kItemsLeftForNextPortion {
             loadNextData()
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListingCell") as? ListingCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: kCellIdentifier) as? ListingCell
         let record = records[indexPath.row]
         cell?.fill(with: record)
         cell?.actionHandler = { [weak self] action in
