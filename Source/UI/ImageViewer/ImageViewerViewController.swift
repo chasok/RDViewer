@@ -15,9 +15,8 @@ class ImageViewerViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-  
-
-        imageView.rdv_loadImageAsync(path)
+        
+        fillImage()
     }
     
     // MARK: - Actions
@@ -27,6 +26,11 @@ class ImageViewerViewController: UIViewController, UIScrollViewDelegate {
     }
 
     // MARK: - Private
+    
+    private func fillImage() {
+        guard let path = path else { return }
+        imageView.rdv_loadImageAsync(path)
+    }
     
     private func saveImage() {
         guard let image = imageView.image else { return }
@@ -42,6 +46,21 @@ class ImageViewerViewController: UIViewController, UIScrollViewDelegate {
             let message = "Your image has been saved to your photos."
             showMessage(message, title: "Saved!")
         }
+    }
+    
+    // MARK: - UIStateRestoring
+
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+
+        coder.encode(path, forKey: "imagePath")
+    }
+
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+
+        path = coder.decodeObject(forKey: "imagePath") as? String
+        fillImage()
     }
     
     // MARK: - UIScrollViewDelegate
