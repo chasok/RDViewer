@@ -248,6 +248,16 @@
                             <constraint firstItem="mtk-yn-hNw" firstAttribute="leading" secondItem="0tq-8q-bOm" secondAttribute="leading" id="iTi-g0-RMk"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="YrN-Au-rbD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bhd-VS-96g">
+                            <connections>
+                                <action selector="savePressed:" destination="k3E-rV-JEf" id="iuA-bK-3eA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="Dez-Vv-uEC" id="fQl-Fb-Wds"/>
                     </connections>

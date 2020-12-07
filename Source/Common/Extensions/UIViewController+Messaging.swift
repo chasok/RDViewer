@@ -14,7 +14,7 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func showError(_ error: Error) {
-        showMessage(error.localizedDescription, title: "Error")
+    func showError(_ error: Error, title: String? = "Error") {
+        showMessage(error.localizedDescription, title: title)
     }
 }
