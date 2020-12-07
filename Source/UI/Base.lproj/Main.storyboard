@@ -46,23 +46,34 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mdS-CF-2Eb">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="187"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="height" constant="150" id="P7y-pe-bJa"/>
                                                                 <constraint firstAttribute="width" secondItem="mdS-CF-2Eb" secondAttribute="height" multiplier="2:1" id="jQI-Z1-Jx1">
                                                                     <variation key="heightClass=compact" constant="1"/>
                                                                 </constraint>
                                                             </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="P7y-pe-bJa"/>
+                                                                </mask>
+                                                            </variation>
+                                                            <variation key="heightClass=compact">
+                                                                <mask key="constraints">
+                                                                    <include reference="P7y-pe-bJa"/>
+                                                                </mask>
+                                                            </variation>
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="200" id="Otm-4h-6Sb"/>
+                                                        <constraint firstAttribute="width" priority="900" id="hdb-E0-OW3"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="Otm-4h-6Sb"/>
+                                                            <exclude reference="hdb-E0-OW3"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="Otm-4h-6Sb"/>
+                                                            <include reference="hdb-E0-OW3"/>
                                                         </mask>
                                                     </variation>
                                                 </stackView>
@@ -102,7 +113,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="UJ1-T7-h3f" secondAttribute="trailing" id="K2W-Iw-qq3"/>
                                                 <constraint firstItem="3YS-x8-aaK" firstAttribute="trailing" secondItem="2rS-Hl-SBW" secondAttribute="trailingMargin" id="LLC-vR-bQw"/>
                                                 <constraint firstItem="3YS-x8-aaK" firstAttribute="top" secondItem="UJ1-T7-h3f" secondAttribute="bottom" constant="8" symbolic="YES" id="Rtn-kG-yVA"/>
-                                                <constraint firstAttribute="bottom" secondItem="UJ1-T7-h3f" secondAttribute="bottom" constant="20" symbolic="YES" id="SQF-f3-hER"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UJ1-T7-h3f" secondAttribute="bottom" constant="20" symbolic="YES" id="SQF-f3-hER"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="3YS-x8-aaK" secondAttribute="bottom" id="VDB-xw-JXM"/>
                                                 <constraint firstItem="3YS-x8-aaK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Dhk-7a-3fe" secondAttribute="bottom" constant="8" symbolic="YES" id="WpT-lu-0g9"/>
                                                 <constraint firstItem="nY0-Ji-0Uf" firstAttribute="top" secondItem="2rS-Hl-SBW" secondAttribute="topMargin" id="Yh1-9A-Tyn"/>
@@ -157,6 +168,7 @@
                                         <connections>
                                             <outlet property="numberOfCommentsLabel" destination="a1q-2H-Gki" id="9xB-28-0tp"/>
                                             <outlet property="postedByLabel" destination="nY0-Ji-0Uf" id="0Tu-TX-PSs"/>
+                                            <outlet property="stackView" destination="UJ1-T7-h3f" id="oyz-A4-JpK"/>
                                             <outlet property="thumbnailRatioConstraint" destination="jQI-Z1-Jx1" id="iY9-oh-F4R"/>
                                             <outlet property="thumbnailView" destination="mdS-CF-2Eb" id="fbL-Aj-npm"/>
                                             <outlet property="titleLabel" destination="Dhk-7a-3fe" id="NwE-tm-PUR"/>
